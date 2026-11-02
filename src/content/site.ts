@@ -84,8 +84,8 @@ export const copy = {
       {
         k: { tr: "Gerçek zamanlı sistemler", en: "Real-time systems" },
         v: {
-          tr: "WebSocket akışları, cron ve kazıyıcılar, Supabase / Postgres, RLS ve otomatik yedekleme.",
-          en: "WebSocket streams, crons and scrapers, Supabase / Postgres, RLS and automated backups.",
+          tr: "Node.js, .NET ve Python servisleri; WebSocket akışları, cron ve kazıyıcılar, Supabase / Postgres, RLS ve otomatik yedekleme.",
+          en: "Node.js, .NET and Python services; WebSocket streams, crons and scrapers, Supabase / Postgres, RLS and automated backups.",
         },
       },
       {
