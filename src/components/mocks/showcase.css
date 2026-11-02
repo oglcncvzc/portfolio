@@ -137,3 +137,62 @@
 @media (max-width: 900px) {
   .sc__phone--l, .sc__phone--r { opacity: 0; pointer-events: none; }
 }
+
+/* GAI Hotel desktop panel */
+.sc--hotel { background: radial-gradient(90% 90% at 50% 100%, #1f4d7a 0%, #0c1726 55%, #070b12 100%); }
+.sc__desk { position: relative; display: grid; place-items: center; padding: 2cqh 4cqw 5cqh; }
+.sc__browser { width: 100%; height: 100%; border-radius: 1.6cqh; overflow: hidden; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08), 0 4cqh 10cqh rgb(0 0 0 / 0.5); animation: ghIn 0.7s var(--ease-out); }
+@keyframes ghIn { from { opacity: 0; transform: translateY(2cqh) scale(0.985); } }
+.gh { width: 100%; height: 100%; display: grid; grid-template-columns: 17% 1fr; background: #f4f6f9; color: #0f1b2d; font-size: 1.15cqw; container-type: inline-size; }
+.gh__side { background: #0f1b2d; color: #93a4bb; display: flex; flex-direction: column; gap: 0.8cqw; padding: 1.8cqw 1.2cqw; font-size: 1.05cqw; }
+.gh__side .on { color: #fff; background: #1d2f4a; border-radius: 0.6cqw; padding: 0.5cqw 0.7cqw; margin: -0.5cqw -0.7cqw; }
+.gh__brand { display: flex; align-items: center; gap: 0.6cqw; color: #fff; font-size: 1.3cqw; margin-bottom: 1.2cqw; }
+.gh__brand i { width: 1.6cqw; height: 1.6cqw; border-radius: 0.5cqw; background: linear-gradient(135deg, #38bdf8, #2563eb); }
+.gh__main { padding: 1.6cqw 1.8cqw; display: flex; flex-direction: column; gap: 1.2cqw; min-width: 0; overflow: hidden; }
+.gh__top { display: flex; align-items: center; gap: 0.8cqw; }
+.gh__top b { font-size: 1.6cqw; margin-right: auto; }
+.gh__chip { font-size: 0.95cqw; padding: 0.35cqw 0.8cqw; border-radius: 99px; background: #fff; border: 1px solid #dbe2ea; }
+.gh__kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9cqw; }
+.gh__kpi { background: #fff; border-radius: 0.9cqw; padding: 1cqw 1.2cqw; display: flex; flex-direction: column; gap: 0.2cqw; box-shadow: 0 0.3cqw 1cqw rgb(15 27 45 / 0.05); }
+.gh__kpi small { color: #64748b; font-size: 0.95cqw; }
+.gh__kpi b { font-size: 2.4cqw; }
+.gh__kpi em { font-style: normal; color: #16a34a; font-size: 0.95cqw; }
+.gh__row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 0.9cqw; flex: 1; min-height: 0; }
+.gh__card { background: #fff; border-radius: 0.9cqw; padding: 1.1cqw 1.3cqw; display: flex; flex-direction: column; gap: 0.6cqw; box-shadow: 0 0.3cqw 1cqw rgb(15 27 45 / 0.05); min-height: 0; overflow: hidden; }
+.gh__card small { color: #64748b; font-size: 0.95cqw; }
+.gh__card ul { margin: 0; padding-left: 1.2cqw; display: grid; gap: 0.5cqw; }
+.gh__card ul li::marker { color: #16a34a; }
+.gh__card ul.neg li::marker { color: #e5322b; }
+.gh__line { flex: 1; width: 100%; }
+.gh__line path { fill: none; stroke: #2563eb; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.gh__line path.b { stroke: #e5322b; }
+.gh__bar { display: grid; grid-template-columns: 7cqw 1fr 3cqw; align-items: center; gap: 0.6cqw; font-size: 0.95cqw; }
+.gh__bar em { font-style: normal; color: #334155; }
+.gh__bar i { height: 0.6cqw; border-radius: 1cqw; background: linear-gradient(90deg, #38bdf8, #2563eb); }
+.gh__bar b { text-align: right; font-weight: 600; }
+.gh__senti { display: flex; height: 1cqw; border-radius: 1cqw; overflow: hidden; gap: 0.15cqw; }
+.gh__senti i:nth-child(1) { background: #16a34a; } .gh__senti i:nth-child(2) { background: #cbd5e1; } .gh__senti i:nth-child(3) { background: #e5322b; }
+.gh__legend { display: flex; gap: 1cqw; font-size: 0.9cqw; color: #475569; }
+.gh__mt { margin-top: 0.6cqw; }
+.gh__review p { margin: 0; font-size: 1.15cqw; line-height: 1.5; color: #1e293b; }
+.gh__review mark { padding: 0 0.2cqw; border-radius: 0.3cqw; }
+mark.pos { background: #dcfce7; } mark.neg { background: #fee2e2; }
+.gh__tags { display: flex; flex-wrap: wrap; gap: 0.5cqw; }
+.gh__tags span { font-size: 0.9cqw; padding: 0.3cqw 0.8cqw; border-radius: 99px; background: #f1f5f9; }
+.gh__tags .pos { background: #dcfce7; color: #166534; } .gh__tags .neg { background: #fee2e2; color: #991b1b; }
+.gh__ai { margin-top: auto; border-radius: 0.8cqw; padding: 1cqw; background: #eff6ff; border: 1px solid #bfdbfe; display: flex; flex-direction: column; gap: 0.5cqw; }
+.gh__ai p { font-size: 1cqw; color: #1e3a8a; }
+.gh__btn { align-self: flex-start; font-size: 0.95cqw; padding: 0.45cqw 1cqw; border-radius: 0.6cqw; background: #2563eb; color: #fff; }
+.gh__grid { display: grid; grid-template-columns: 1.6fr repeat(5, 1fr); background: #fff; border-radius: 0.9cqw; padding: 0.6cqw 1cqw; font-size: 1.05cqw; box-shadow: 0 0.3cqw 1cqw rgb(15 27 45 / 0.05); }
+.gh__grid .h { color: #64748b; font-size: 0.95cqw; padding: 0.7cqw 0; }
+.gh__gr { display: contents; }
+.gh__gr > * { padding: 0.9cqw 0; border-top: 1px solid #eef2f6; }
+.gh__gr b { font-weight: 500; }
+.gh__gr.me > * { background: #eff6ff; font-weight: 600; }
+.gh__gr b.hi { color: #e5322b; } .gh__gr b.lo { color: #16a34a; }
+.gh__steps { display: flex; gap: 0.6cqw; }
+.gh__steps span { flex: 1; font-size: 0.95cqw; padding: 0.7cqw; border-radius: 0.6cqw; background: #e2e8f0; color: #64748b; }
+.gh__steps .done { background: #dbeafe; color: #1e40af; }
+.gh__steps .on { background: #2563eb; color: #fff; }
+.gh__p { margin: 0; font-size: 1.1cqw; color: #1e293b; }
+@media (prefers-reduced-motion: reduce) { .sc__browser { animation: none; } }

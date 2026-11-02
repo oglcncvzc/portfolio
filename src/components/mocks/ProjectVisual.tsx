@@ -1,5 +1,5 @@
 import FramelyMock from "./FramelyMock";
-import { CoachShowcase, QrShowcase } from "./Showcase";
+import { CoachShowcase, HotelShowcase, QrShowcase } from "./Showcase";
 import "./visuals.css";
 
 /** Each project's own screen, rebuilt in HTML from its codebase. Corporate screens use anonymised demo data. */
@@ -9,6 +9,8 @@ export default function ProjectVisual({ id, label }: { id: string; label: string
       return <div className="pv"><CoachShowcase label={label} /></div>;
     case "framely":
       return <div className="pv pv--framely"><FramelyMock label={label} /></div>;
+    case "hotel-ai":
+      return <div className="pv"><HotelShowcase label={label} /></div>;
     case "falaxy":
       return (
         <div className="pv pv--falaxy" role="img" aria-label={label}>

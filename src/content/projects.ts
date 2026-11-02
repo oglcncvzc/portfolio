@@ -25,7 +25,7 @@ export const kindLabel: Record<ProjectKind, L10n> = {
   corporate: { tr: "Kurumsal · internal", en: "Corporate · internal" },
 };
 
-export const projects: Project[] = [
+const list: Project[] = [
   {
     id: "coach-panel",
     index: "01",
@@ -110,6 +110,34 @@ export const projects: Project[] = [
     },
     stack: ["React Native", "Expo", "Reanimated", "FastAPI", "SQLAlchemy", "Docker"],
     ai: ["OpenAI", "JSON mode", "Streaming chat"],
+  },
+  {
+    id: "hotel-ai",
+    index: "04",
+    title: "GAI Hotel",
+    kind: "corporate",
+    year: 2026,
+    tagline: { tr: "Otel yorum zekâsı ve fiyat takibi", en: "Hotel review intelligence & price tracking" },
+    summary: {
+      tr: "Otellerin misafir yorumlarını birçok platformdan toplayıp yapay zekâyla duygu, konu ve kategori bazında analiz eden; AI cevap taslakları ve zamanlanmış raporlar üreten panel. Yanında rakip otellerin fiyatlarını Booking, ETS ve Trivago'dan izleyen bir fiyat modülü var. İlk prototipleri (GAI Hotel) geliştirdim ve ön yüzde çalıştım.",
+      en: "A panel that collects hotel guest reviews from many platforms and analyses them with AI by sentiment, topic and category, then drafts AI replies and scheduled reports. Alongside it, a price module tracks competitor hotel rates across Booking, ETS and Trivago. I built the first prototypes (GAI Hotel) and worked on the frontend.",
+    },
+    highlights: {
+      tr: [
+        "Yorum analizi: sentiment skorları, kategori bazlı puanlar, pozitif/negatif etiketler ve geçtikleri metin, yorum çevirisi.",
+        "Otel adına AI cevap taslağı ve 'Güçlü yönler / İyileştirme alanları' özetli AI analiz raporu.",
+        "Günlük, haftalık, aylık zamanlanabilen rapor sihirbazı ve global dağılım haritası.",
+        "Link ya da filtreyle otel çekme, oda tipi, tatil türü ve kampanyaya göre fiyat karşılaştırma.",
+      ],
+      en: [
+        "Review analysis: sentiment scores, category scores, positive/negative tags with their source text, review translation.",
+        "AI reply drafts on the hotel's behalf and an AI report summarising strengths and areas to improve.",
+        "A report wizard with daily, weekly or monthly schedules and a global distribution map.",
+        "Hotel sourcing by link or filters, and price comparison by room type, holiday type and campaign.",
+      ],
+    },
+    stack: ["React", "TypeScript", "Ant Design", "ECharts", "AG Grid", "Leaflet", "i18n"],
+    ai: ["LLM sentiment", "AI replies", "AI reports"],
   },
   {
     id: "phitalk",
@@ -272,3 +300,6 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript", "YouTube IFrame API", "Web Audio"],
   },
 ];
+
+/** Order is the array order; the index is derived so cards never need renumbering. */
+export const projects: Project[] = list.map((p, i) => ({ ...p, index: String(i + 1).padStart(2, "0") }));

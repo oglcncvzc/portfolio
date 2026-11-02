@@ -108,8 +108,6 @@
   transition: background-color 0.3s;
 }
 .contact__btn:hover { background: var(--bone); color: var(--ink-0); }
-.contact__links { list-style: none; padding: 0; margin: 0; display: flex; gap: 24px; font-size: 18px; }
-.contact__links a { text-decoration: none; border-bottom: 1px solid currentColor; }
 .foot { margin-top: auto; padding-top: 80px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: rgb(242 242 242 / 0.55); }
 .foot a { text-decoration: none; }
 
@@ -141,3 +139,23 @@
 .to-top__ring { position: absolute; inset: -4px; transform: rotate(-90deg); }
 .to-top__ring circle { fill: none; stroke: var(--vermilion); stroke-width: 2.5; stroke-dasharray: 182; stroke-dashoffset: var(--off, 182); }
 @media (max-width: 900px) { .to-top { right: 16px; bottom: 16px; width: 48px; height: 48px; } }
+
+/* Social links */
+.ico { width: 1em; height: 1em; display: block; }
+.social { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.social__item {
+  position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+  padding: 18px 20px; border-radius: 22px; text-decoration: none; isolation: isolate; overflow: hidden;
+  background: rgb(242 242 242 / 0.06); border: 1px solid rgb(242 242 242 / 0.14);
+  transition: color 0.35s, border-color 0.35s;
+}
+.social__item::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--bone); clip-path: circle(0% at 32px 50%); transition: clip-path 0.7s var(--ease-out); }
+.social__item:hover, .social__item:focus-visible { color: var(--ink-0); border-color: var(--bone); }
+.social__item:hover::before, .social__item:focus-visible::before { clip-path: circle(150% at 32px 50%); }
+.social__ico { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; font-size: 24px; background: var(--vermilion); color: var(--bone); flex: none; }
+.social__txt { display: flex; flex-direction: column; min-width: 0; }
+.social__txt small { font-size: 13px; opacity: 0.65; }
+.social__txt b { font-size: clamp(15px, 1.15vw, 18px); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.social .ico--arrow { font-size: 16px; opacity: 0.6; transition: transform 0.5s var(--ease-out); }
+.social__item:hover .ico--arrow { transform: translate(3px, -3px); opacity: 1; }
+@media (max-width: 900px) { .social { grid-template-columns: 1fr; } }

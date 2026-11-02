@@ -179,3 +179,94 @@ export function QrShowcase({ label }: { label: string }) {
     ]} />
   );
 }
+
+/* ---------- GAI Hotel (desktop panel, anonymised hotels) ---------- */
+const HSide = ({ on }: { on: number }) => (
+  <aside className="gh__side">
+    <b className="gh__brand"><i />GAI Hotel</b>
+    {["Dashboard", "Yorum Analizi", "Fiyat Takibi", "Raporlar", "Otel Kurulumu"].map((k, i) => (<span key={k} className={i === on ? "on" : ""}>{k}</span>))}
+  </aside>
+);
+const Kpi = ({ k, v, d }: { k: string; v: string; d?: string }) => (<div className="gh__kpi"><small>{k}</small><b className="tabular">{v}</b>{d && <em>{d}</em>}</div>);
+const HDash = () => (
+  <div className="gh"><HSide on={0} />
+    <div className="gh__main">
+      <div className="gh__top"><b>Koy Resort</b><span className="gh__chip">Son 30 gün</span></div>
+      <div className="gh__kpis"><Kpi k="Toplam Yorum Sayısı" v="2.418" d="+12%" /><Kpi k="Genel Puan Ort." v="8,9" /><Kpi k="Hizmet Puan Ort." v="9,1" /><Kpi k="Yemek Puan Ort." v="8,4" /></div>
+      <div className="gh__row">
+        <div className="gh__card gh__card--wide"><small>Puan trendi</small>
+          <svg viewBox="0 0 200 60" preserveAspectRatio="none" className="gh__line"><path d="M0 42 L25 38 L50 40 L75 30 L100 32 L125 22 L150 24 L175 14 L200 12" /><path className="b" d="M0 50 L25 48 L50 44 L75 46 L100 40 L125 38 L150 34 L175 36 L200 30" /></svg>
+        </div>
+        <div className="gh__card"><small>Global Dağılım</small>
+          {[["Almanya", 34], ["Türkiye", 27], ["İngiltere", 18], ["Rusya", 12]].map(([c, v]) => (<span className="gh__bar" key={c as string}><em>{c}</em><i style={{ width: `${(v as number) * 2.4}%` }} /><b>{v}%</b></span>))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+const HReview = () => (
+  <div className="gh"><HSide on={1} />
+    <div className="gh__main">
+      <div className="gh__top"><b>Yorum Analizi</b><span className="gh__chip">Booking.com</span><span className="gh__chip">Google</span></div>
+      <div className="gh__row">
+        <div className="gh__card"><small>Sentiment Skorları</small>
+          <div className="gh__senti"><i style={{ flex: 71 }} /><i style={{ flex: 18 }} /><i style={{ flex: 11 }} /></div>
+          <div className="gh__legend"><span>Pozitif 71%</span><span>Nötr 18%</span><span>Negatif 11%</span></div>
+          <small className="gh__mt">Kategori Bazlı Puanlar</small>
+          {[["Temizlik", 9.3], ["Personel", 9.1], ["Konum", 8.8], ["Fiyat/Değer", 7.6]].map(([k, v]) => (<span className="gh__bar" key={k as string}><em>{k}</em><i style={{ width: `${(v as number) * 9}%` }} /><b className="tabular">{String(v).replace(".", ",")}</b></span>))}
+        </div>
+        <div className="gh__card gh__card--wide gh__review">
+          <small>Yorum · 9,0 · Almanya</small>
+          <p>“Personel çok ilgiliydi, <mark className="pos">plaj tertemizdi</mark>. Ancak <mark className="neg">akşam yemeğinde çeşit azdı</mark> ve odada wifi yavaştı.”</p>
+          <div className="gh__tags"><span className="pos">Personel</span><span className="pos">Plaj</span><span className="neg">Yemek çeşidi</span><span className="neg">Wifi</span></div>
+          <div className="gh__ai"><small>AI cevap taslağı</small><p>Değerli misafirimiz, güzel yorumunuz için teşekkür ederiz. Akşam menümüzü ve oda internetimizi geri bildiriminiz doğrultusunda iyileştiriyoruz…</p><span className="gh__btn">Otel cevabı olarak gönder</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+const HPrice = () => (
+  <div className="gh"><HSide on={2} />
+    <div className="gh__main">
+      <div className="gh__top"><b>Fiyat Takibi</b><span className="gh__chip">Oda Tipine Göre</span><span className="gh__chip">Fiyata Göre</span></div>
+      <div className="gh__grid">
+        <span className="h">Otel</span>{["12 Haz", "13 Haz", "14 Haz", "15 Haz", "16 Haz"].map((d) => (<span key={d} className="h">{d}</span>))}
+        {[["Koy Resort", [210, 218, 236, 240, 225], true], ["Sahil Otel", [198, 205, 229, 251, 230], false], ["Mavi Bay", [225, 224, 219, 262, 248], false], ["Çam Koru", [176, 180, 195, 205, 190], false]].map(([n, ps, me]) => (
+          <span key={n as string} className={`gh__gr ${me ? "me" : ""}`}><span>{n as string}</span>{(ps as number[]).map((p, i) => (<b key={i} className={`tabular ${p > 240 ? "hi" : p < 200 ? "lo" : ""}`}>€{p}</b>))}</span>
+        ))}
+      </div>
+      <div className="gh__card gh__card--wide"><small>Kaynaklar</small><div className="gh__tags"><span>Booking.com</span><span>ETS</span><span>Trivago</span><span className="pos">Link ile otel çekme</span><span>Filtre ile otel çekme</span></div></div>
+    </div>
+  </div>
+);
+const HReport = () => (
+  <div className="gh"><HSide on={3} />
+    <div className="gh__main">
+      <div className="gh__top"><b>AI Analiz Raporu</b><span className="gh__chip">Ayda bir</span></div>
+      <div className="gh__steps">{["Rapor Türü Seç", "Rapor Adı", "Zamanlama", "Özet"].map((k, i) => (<span key={k} className={i < 3 ? "done" : "on"}>{k}</span>))}</div>
+      <div className="gh__row">
+        <div className="gh__card"><small>Güçlü Yönler</small><ul><li>Personel ilgisi ve karşılama</li><li>Plaj ve havuz temizliği</li><li>Konum ve manzara</li></ul></div>
+        <div className="gh__card"><small>İyileştirme Alanları</small><ul className="neg"><li>Akşam yemeği çeşitliliği</li><li>Oda içi internet hızı</li><li>Check-in bekleme süresi</li></ul></div>
+      </div>
+      <div className="gh__card gh__card--wide"><small>Veri Stratejisi</small><p className="gh__p">Son 90 günde 1.214 yorum, 6 platform, 9 dil. Negatif temaların %62'si yemek ve internet kaynaklı.</p></div>
+    </div>
+  </div>
+);
+
+export function HotelShowcase({ label }: { label: string }) {
+  const tabs = [
+    { key: "review", label: "Yorum Analizi", node: <HReview /> },
+    { key: "dash", label: "Dashboard", node: <HDash /> },
+    { key: "price", label: "Fiyat Takibi", node: <HPrice /> },
+    { key: "report", label: "AI Raporu", node: <HReport /> },
+  ];
+  const [a, setA] = useState(0);
+  return (
+    <div className="sc sc--hotel" role="group" aria-label={label}>
+      <div className="sc__tabs" role="tablist">
+        {tabs.map((t, i) => (<button key={t.key} role="tab" aria-selected={i === a} className={i === a ? "on" : ""} onClick={() => setA(i)} data-cursor="">{t.label}</button>))}
+      </div>
+      <div className="sc__desk"><div className="sc__browser" key={tabs[a].key}>{tabs[a].node}</div></div>
+    </div>
+  );
+}

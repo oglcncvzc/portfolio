@@ -36,22 +36,29 @@ export default function HeroMotion() {
       };
       window.addEventListener("pointermove", onMove, { passive: true });
 
-      // scroll: pin and dive into the lens. Built after the entrance so it records the settled state.
+      // scroll: pin and dive into the lens. Built after the entrance so it records the settled state,
+      // and rebuilt per breakpoint so a resize never keeps the other layout's motion.
       const buildScroll = () => {
-        const st = gsap.timeline({
-          scrollTrigger: { trigger: hero, start: "top top", end: "+=110%", scrub: 0.8, pin: true, anticipatePin: 1 },
-          defaults: { ease: "none" },
+        const mm = gsap.matchMedia();
+        mm.add({ desk: "(min-width: 761px) and (min-aspect-ratio: 4/5)", phone: "(max-width: 760px), (max-aspect-ratio: 4/5)" }, (c) => {
+          const phone = !!c.conditions?.phone;
+          const st = gsap.timeline({
+            scrollTrigger: { trigger: hero, start: "top top", end: phone ? "+=70%" : "+=110%", scrub: 0.8, pin: true, anticipatePin: 1, invalidateOnRefresh: true, refreshPriority: 10 },
+            defaults: { ease: "none" },
+          });
+          st.fromTo(".hero__name--gulcan", { xPercent: 0, opacity: 1, filter: "blur(0px)" }, { xPercent: phone ? -30 : 38, opacity: 0, filter: "blur(10px)" }, 0)
+            .fromTo(".hero__name--cevizci", { xPercent: 0, opacity: 1, filter: "blur(0px)" }, { xPercent: phone ? 30 : 60, opacity: 0, filter: "blur(10px)" }, 0)
+            .fromTo(".hero__tagline, .hero__caption--01, .hero__ctas", { yPercent: 0, opacity: 1 }, { yPercent: -120, opacity: 0 }, 0)
+            .fromTo(".hero__vein", { opacity: 1 }, { opacity: 0 }, 0);
+          if (!phone) st.fromTo(".hero__caption--02, .hero__framely", { y: 0, opacity: 1 }, { y: () => -window.innerHeight * 0.25, opacity: 0 }, 0);
+          // desktop: the lens travels to the centre and swallows the screen; phone: it is already centred, so it only swells
+          st.fromTo(".hero__ring, .hero__screen", { x: 0, y: 0, scale: 1, rotate: 0 }, phone
+              ? { y: () => window.innerHeight * 0.12, scale: 1.45, ease: "power2.in" }
+              : { x: () => window.innerWidth * 0.29, y: () => window.innerHeight * 0.08, scale: 2.9, ease: "power2.in" }, 0)
+            .fromTo(".hero__ring", { opacity: 1 }, { opacity: 0, ease: "power2.in" }, 0.55)
+            .fromTo(".hero__screen", { opacity: 1 }, { opacity: 0, ease: "power1.in" }, 0.75);
         });
-        st.fromTo(".hero__name--gulcan", { xPercent: 0, opacity: 1, filter: "blur(0px)" }, { xPercent: 38, opacity: 0, filter: "blur(10px)" }, 0)
-          .fromTo(".hero__name--cevizci", { xPercent: 0, opacity: 1, filter: "blur(0px)" }, { xPercent: 60, opacity: 0, filter: "blur(10px)" }, 0)
-          .fromTo(".hero__tagline, .hero__caption--01, .hero__ctas", { yPercent: 0, opacity: 1 }, { yPercent: -120, opacity: 0 }, 0)
-          .fromTo(".hero__caption--02, .hero__framely", { y: 0, opacity: 1 }, { y: () => -window.innerHeight * 0.25, opacity: 0 }, 0)
-          .fromTo(".hero__vein", { opacity: 1 }, { opacity: 0 }, 0)
-          .fromTo(".hero__ring, .hero__screen", { x: 0, y: 0, scale: 1, rotate: 0 }, {
-            x: () => window.innerWidth * 0.29, y: () => window.innerHeight * 0.08, scale: 2.9, ease: "power2.in",
-          }, 0)
-          .fromTo(".hero__ring", { opacity: 1 }, { opacity: 0, ease: "power2.in" }, 0.55)
-          .fromTo(".hero__screen", { opacity: 1 }, { opacity: 0, ease: "power1.in" }, 0.8);
+        ScrollTrigger.sort();
         ScrollTrigger.refresh();
       };
       tl.eventCallback("onComplete", () => { hero.classList.add("is-in"); buildScroll(); });

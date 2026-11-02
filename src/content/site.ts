@@ -8,9 +8,8 @@ export const person = {
   nameUpper: "OĞULCAN CEVİZCİ",
   title: { tr: "Full-Stack & AI Engineer", en: "Full-Stack & AI Engineer" } satisfies L10n,
   github: "https://github.com/oglcncvzc",
-  // TODO(owner): fill in before launch. Never invent these.
-  email: "",
-  linkedin: "",
+  email: "cevizciogulcan@gmail.com",
+  linkedin: "https://www.linkedin.com/in/o%C4%9Fulcan-cevizci-937a99214",
   location: { tr: "", en: "" } satisfies L10n,
   /** Owner uploads the PDF later to public/cv/. */
   cv: { tr: "/cv/ogulcan-cevizci-cv-tr.pdf", en: "/cv/ogulcan-cevizci-cv-en.pdf" } satisfies L10n,

@@ -46,26 +46,42 @@ export default function PageMotion() {
       };
       gsap.ticker.add(tick);
 
-      // work: cards stack, the one underneath sinks and shades
+      // work: cards stack, the one underneath sinks and shades. Cards are sticky, so positions are computed
+      // from the static stack container instead of the cards themselves.
+      const stack = document.querySelector<HTMLElement>(".work__stack");
       const cards = gsap.utils.toArray<HTMLElement>(".proj");
+      const stacked = () => window.matchMedia("(min-width: 901px)").matches;
+      const stackTop = () => (stack ? stack.getBoundingClientRect().top + window.scrollY : 0);
+      const slot = () => window.innerHeight * 1.6;
       cards.forEach((card, i) => {
         const inner = card.querySelector<HTMLElement>(".proj__card")!;
         const lens = card.querySelector<HTMLElement>(".proj__lens")!;
         const visual = card.querySelector<HTMLElement>(".proj__visual")!;
+        const enter = () => (stacked() ? stackTop() + i * slot() : card.getBoundingClientRect().top + window.scrollY);
         gsap.fromTo(lens, { clipPath: "circle(12% at 50% 50%)" }, {
           clipPath: "circle(75% at 50% 50%)", ease: "power2.out",
-          scrollTrigger: { trigger: card, start: "top 85%", end: "top 15%", scrub: 0.6 },
+          scrollTrigger: { start: () => enter() - window.innerHeight * 0.85, end: () => enter() - window.innerHeight * 0.15, scrub: 0.6, invalidateOnRefresh: true },
         });
         gsap.fromTo(visual, { scale: 1.25, rotate: -4 }, {
           scale: 1, rotate: 0, ease: "power2.out",
-          scrollTrigger: { trigger: card, start: "top 85%", end: "top 10%", scrub: 0.6 },
+          scrollTrigger: { start: () => enter() - window.innerHeight * 0.85, end: () => enter() - window.innerHeight * 0.1, scrub: 0.6, invalidateOnRefresh: true },
         });
-        if (i < cards.length - 1) {
-          gsap.to(inner, {
+      });
+
+      // stacking only exists where cards are sticky (desktop)
+      gsap.matchMedia().add("(min-width: 901px)", () => {
+        cards.slice(0, -1).forEach((card, i) => {
+          const inner = card.querySelector<HTMLElement>(".proj__card")!;
+          gsap.fromTo(inner, { scale: 1, yPercent: 0, "--shade": 0 }, {
             scale: 0.9, yPercent: -2, "--shade": 0.6, ease: "none",
-            scrollTrigger: { trigger: cards[i + 1], start: "top 65%", end: "top top", scrub: true },
+            scrollTrigger: {
+              // the next card's top travels from 65% of the viewport to the top
+              start: () => stackTop() + (i + 1) * slot() - window.innerHeight * 0.65,
+              end: () => stackTop() + (i + 1) * slot(),
+              scrub: true, invalidateOnRefresh: true,
+            },
           });
-        }
+        });
       });
 
       // about: words light up as you read
