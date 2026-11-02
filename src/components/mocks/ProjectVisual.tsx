@@ -1,5 +1,5 @@
 import FramelyMock from "./FramelyMock";
-import { CoachShowcase, HotelShowcase, QrShowcase } from "./Showcase";
+import { CoachShowcase, FalaxyShowcase, HotelShowcase, QrShowcase } from "./Showcase";
 import "./visuals.css";
 
 /** Each project's own screen, rebuilt in HTML from its codebase. Corporate screens use anonymised demo data. */
@@ -12,21 +12,7 @@ export default function ProjectVisual({ id, label }: { id: string; label: string
     case "hotel-ai":
       return <div className="pv"><HotelShowcase label={label} /></div>;
     case "falaxy":
-      return (
-        <div className="pv pv--falaxy" role="img" aria-label={label}>
-          <div className="phone">
-            <div className="phone__bar"><b>Falaxy</b><span className="fal__tok">🔥 120</span></div>
-            <div className="fal__hero"><img src="/work/falaxy/hero.webp" alt="" /><span>GELECEK SENİ<br />ŞAŞIRTMASIN!</span><i>✨ FAL BAKTIR</i></div>
-            <div className="fal__grid">
-              {["Tarot", "Kahve", "Burç", "Yüz"].map((k) => (<span key={k}>{k}</span>))}
-            </div>
-          </div>
-          <div className="fal__cards">
-            <img src="/work/falaxy/tarot.webp" alt="" />
-            <img src="/work/falaxy/mascot.webp" alt="" className="fal__mascot" />
-          </div>
-        </div>
-      );
+      return <div className="pv"><FalaxyShowcase label={label} /></div>;
     case "phitalk":
       return (
         <div className="pv pv--voice" role="img" aria-label={label}>

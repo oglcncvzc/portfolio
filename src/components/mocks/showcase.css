@@ -196,3 +196,58 @@ mark.pos { background: #dcfce7; } mark.neg { background: #fee2e2; }
 .gh__steps .on { background: #2563eb; color: #fff; }
 .gh__p { margin: 0; font-size: 1.1cqw; color: #1e293b; }
 @media (prefers-reduced-motion: reduce) { .sc__browser { animation: none; } }
+
+/* Falaxy */
+.sc--falaxy { background: radial-gradient(80% 80% at 50% 100%, #7c3aed 0%, #2a1650 45%, #0c0718 85%); }
+.sc--falaxy .sc__tabs button.on { background: linear-gradient(90deg, #a855f7, #ec4899); color: #fff; }
+.sc--falaxy .sc__phone { background: #120a24; box-shadow: 0 0 0 0.5cqh #3b2a5c, 0 4cqh 10cqh rgb(20 0 40 / 0.6); }
+.fx { height: 100%; background: linear-gradient(170deg, #241246 0%, #120a24 60%); color: #f3ecff; padding: 6cqw 5cqw; display: flex; flex-direction: column; gap: 3.4cqw; font-size: 3.8cqw; overflow: hidden; }
+.fx__head { display: flex; justify-content: space-between; align-items: center; margin-top: 2cqw; }
+.fx__head b { font-size: 6cqw; }
+.fx__tok { font-size: 3.4cqw; padding: 1cqw 2.6cqw; border-radius: 99px; background: rgb(255 255 255 / 0.12); }
+.fx__ai { display: inline-flex; align-items: center; gap: 1.2cqw; align-self: flex-start; font-size: 2.9cqw; padding: 0.9cqw 2.4cqw; border-radius: 99px; color: #fff; background: linear-gradient(90deg, #a855f7, #ec4899); box-shadow: 0 0 3cqw rgb(236 72 153 / 0.45); }
+.fx__ai i { width: 2.6cqw; height: 2.6cqw; background: #fff; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+.fx__hero { position: relative; border-radius: 5cqw; overflow: hidden; }
+.fx__hero img { width: 100%; aspect-ratio: 1.05; object-fit: cover; }
+.fx__hero span { position: absolute; left: 4cqw; bottom: 12cqw; font-size: 6cqw; font-weight: 700; line-height: 1.02; text-shadow: 0 0.6cqw 2cqw rgb(0 0 0 / 0.7); }
+.fx__hero i { position: absolute; left: 4cqw; bottom: 4cqw; font-style: normal; font-size: 3.4cqw; padding: 1.4cqw 3.4cqw; border-radius: 99px; background: linear-gradient(90deg, #a855f7, #ec4899); animation: fxPulse 2.4s ease-in-out infinite; }
+@keyframes fxPulse { 50% { box-shadow: 0 0 0 2cqw rgb(236 72 153 / 0); transform: scale(1.04); } }
+.fx__zodiac { display: grid; grid-template-columns: auto 1fr; gap: 1.4cqw 3cqw; align-items: center; padding: 3.4cqw; border-radius: 4cqw; background: rgb(255 255 255 / 0.07); border: 1px solid rgb(255 255 255 / 0.12); }
+.fx__zodiac > b { grid-row: span 2; font-size: 10cqw; color: #fbbf24; line-height: 1; }
+.fx__zodiac span { display: flex; flex-direction: column; font-size: 4.4cqw; }
+.fx__zodiac small { font-size: 2.9cqw; color: #c4b5fd; }
+.fx__mods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqw; }
+.fx__mods span { font-size: 3cqw; text-align: center; padding: 3.4cqw 1cqw; border-radius: 3cqw; background: rgb(255 255 255 / 0.07); border: 1px solid rgb(255 255 255 / 0.1); }
+.fx__title { margin: 0; font-size: 5.6cqw; font-weight: 700; }
+.fx__spreads { display: flex; gap: 1.6cqw; }
+.fx__spreads span { font-size: 2.8cqw; padding: 1.4cqw 2.2cqw; border-radius: 99px; background: rgb(255 255 255 / 0.08); white-space: nowrap; }
+.fx__spreads .on { background: #f3ecff; color: #241246; }
+.fx__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4cqw; }
+.fx__card { position: relative; border-radius: 2.6cqw; overflow: hidden; border: 0.5cqw solid #d4af37; aspect-ratio: 0.62; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.6cqw; }
+.fx__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.fx__card small, .fx__card b { position: relative; text-shadow: 0 0.4cqw 1cqw #000; }
+.fx__card small { font-size: 2.6cqw; color: #e9d5ff; }
+.fx__card b { font-size: 3.2cqw; }
+.fx__card.is-up { transform: translateY(-2.4cqw); box-shadow: 0 0 5cqw rgb(236 72 153 / 0.55); }
+.fx__reading { display: flex; flex-direction: column; gap: 2cqw; padding: 3.6cqw; border-radius: 4cqw; background: rgb(255 255 255 / 0.07); border: 1px solid rgb(168 85 247 / 0.45); }
+.fx__reading p { margin: 0; font-size: 3.4cqw; line-height: 1.45; color: #ede4ff; }
+.fx__caret { display: inline-block; width: 0.8cqw; height: 3.6cqw; margin-left: 0.6cqw; vertical-align: -0.5cqw; background: #ec4899; animation: fxBlink 1s steps(2) infinite; }
+@keyframes fxBlink { 50% { opacity: 0; } }
+.fx__memory { display: flex; flex-direction: column; gap: 1.6cqw; padding: 3.2cqw; border-radius: 4cqw; background: linear-gradient(135deg, rgb(168 85 247 / 0.28), rgb(236 72 153 / 0.18)); border: 1px solid rgb(236 72 153 / 0.4); }
+.fx__memory p { margin: 0; font-size: 3.4cqw; }
+.fx__msg { max-width: 86%; padding: 3cqw 3.6cqw; border-radius: 4cqw 4cqw 4cqw 1cqw; background: rgb(255 255 255 / 0.09); font-size: 3.4cqw; line-height: 1.4; }
+.fx__msg--me { align-self: flex-end; background: linear-gradient(90deg, #a855f7, #ec4899); border-radius: 4cqw 4cqw 1cqw 4cqw; }
+.fx__acts { display: flex; gap: 2cqw; }
+.fx__acts span { font-size: 3cqw; padding: 1.8cqw 3cqw; border-radius: 99px; border: 1px solid rgb(255 255 255 / 0.25); }
+.fx__input { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding: 3cqw 4cqw; border-radius: 99px; background: rgb(255 255 255 / 0.08); color: #b9a6dc; font-size: 3.4cqw; }
+.fx__input i { width: 6cqw; height: 6cqw; border-radius: 50%; background: linear-gradient(135deg, #a855f7, #ec4899); }
+.fx__cam { position: relative; border-radius: 5cqw; overflow: hidden; background: #1a1030; aspect-ratio: 1; }
+.fx__cam img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; opacity: 0.9; }
+.fx__mesh { position: absolute; inset: 8% 18%; width: 64%; height: 84%; }
+.fx__mesh circle { fill: #fff; }
+.fx__mesh path { fill: none; stroke: rgb(236 72 153 / 0.8); stroke-width: 0.6; }
+.fx__ondevice { position: absolute; left: 3cqw; right: 3cqw; bottom: 3cqw; font-size: 2.7cqw; text-align: center; padding: 1.4cqw; border-radius: 99px; background: rgb(0 0 0 / 0.55); }
+.fx__traits { display: flex; flex-wrap: wrap; gap: 1.4cqw; }
+.fx__traits span { font-size: 2.7cqw; padding: 1.2cqw 2.2cqw; border-radius: 99px; background: rgb(255 255 255 / 0.08); }
+@media (prefers-reduced-motion: reduce) { .fx__hero i, .fx__caret { animation: none; } }
+.fx__zodiac .fx__ai { justify-self: start; }

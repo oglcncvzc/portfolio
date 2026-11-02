@@ -270,3 +270,64 @@ export function HotelShowcase({ label }: { label: string }) {
     </div>
   );
 }
+
+/* ---------- Falaxy (AI fortune-telling, Expo app) ---------- */
+const AiTag = ({ children }: { children: React.ReactNode }) => (<span className="fx__ai"><i />{children}</span>);
+const FxHead = () => (<div className="fx__head"><b>Falaxy</b><span className="fx__tok">🔥 120</span></div>);
+const FxHome = () => (
+  <div className="fx">
+    <FxHead />
+    <div className="fx__hero"><img src="/work/falaxy/hero.webp" alt="" /><span>GELECEK SENİ<br />ŞAŞIRTMASIN!</span><i>✨ FAL BAKTIR</i></div>
+    <div className="fx__zodiac"><b>马</b><span><small>2026 · Çin burcu</small>Ateş Atı</span><AiTag>Günlük yorum</AiTag></div>
+    <div className="fx__mods">{["Tarot", "Astroloji", "Numeroloji", "Yüz okuma", "Uyumluluk", "Melek kartı"].map((m) => (<span key={m}>{m}</span>))}</div>
+  </div>
+);
+const FxTarot = () => (
+  <div className="fx">
+    <FxHead />
+    <p className="fx__title">Geleceğin Kapılarını Arala</p>
+    <div className="fx__spreads"><span>1 Kart · 🔥5</span><span className="on">3 Kart · 🔥10</span><span>Kelt Haçı · 🔥25</span></div>
+    <div className="fx__cards">
+      {[["Geçmiş", "The Moon"], ["Şimdi", "The Star"], ["Gelecek", "Wheel"]].map(([k, n], i) => (
+        <div key={k} className={`fx__card ${i === 1 ? "is-up" : ""}`}><img src="/work/falaxy/tarot.webp" alt="" /><small>{k}</small><b>{n}</b></div>
+      ))}
+    </div>
+    <div className="fx__reading"><AiTag>AI yorumu</AiTag><p>Yıldız kartı, uzun süredir beklediğin bir haberin yaklaştığını gösteriyor. Geçmişteki Ay, belirsizliğin artık geride kaldığına işaret ediyor<em className="fx__caret" /></p></div>
+  </div>
+);
+const FxChat = () => (
+  <div className="fx fx--chat">
+    <FxHead />
+    <div className="fx__memory"><AiTag>Hafıza</AiTag><p>Geçen hafta iş görüşmesini sormuştun. Nasıl geçti?</p></div>
+    <div className="fx__msg fx__msg--me">Burcum bu hafta ne diyor?</div>
+    <div className="fx__msg">Doğum tarihine göre Akrep burcusun ♏. Bu hafta Venüs etkisiyle ilişkilerde netlik var; cuma günü önemli bir konuşma seni bekliyor.</div>
+    <div className="fx__acts"><span>Tarot'a bak →</span><span>Uyumluluk →</span></div>
+    <div className="fx__input"><span>Yıldızlara sor…</span><i /></div>
+  </div>
+);
+const FxFace = () => (
+  <div className="fx">
+    <FxHead />
+    <div className="fx__cam">
+      <img src="/work/falaxy/mascot.webp" alt="" />
+      <svg viewBox="0 0 100 100" className="fx__mesh" aria-hidden="true">
+        {[[50, 22], [36, 34], [64, 34], [42, 40], [58, 40], [50, 52], [40, 64], [60, 64], [50, 70], [30, 48], [70, 48], [50, 82]].map(([x, y], i) => (<circle key={i} cx={x} cy={y} r="1.6" />))}
+        <path d="M36 34 L50 22 L64 34 M42 40 L50 52 L58 40 M40 64 L50 70 L60 64 M30 48 L40 64 M70 48 L60 64 M50 70 L50 82" />
+      </svg>
+      <span className="fx__ondevice">Cihazda analiz · fotoğraf sunucuya gitmez</span>
+    </div>
+    <div className="fx__traits">{["Alın · geniş", "Kaş · kavisli", "Göz · badem", "Burun · düz", "Dudak · dolgun", "Çene · oval", "Yüz · kalp", "Kulak · küçük"].map((t) => (<span key={t}>{t}</span>))}</div>
+    <div className="fx__reading"><AiTag>LLM sentezi</AiTag><p>Geniş alın ve badem gözler, sezgisel ve planlı bir karaktere işaret ediyor…</p></div>
+  </div>
+);
+
+export function FalaxyShowcase({ label }: { label: string }) {
+  return (
+    <Phones theme="falaxy" label={label} screens={[
+      { key: "home", label: "Ana sayfa", node: <FxHome /> },
+      { key: "tarot", label: "Tarot · AI yorum", node: <FxTarot /> },
+      { key: "chat", label: "AI asistan", node: <FxChat /> },
+      { key: "face", label: "Yüz okuma", node: <FxFace /> },
+    ]} />
+  );
+}
