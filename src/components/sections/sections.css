@@ -43,7 +43,7 @@
 .proj__meta { display: flex; align-items: center; gap: 14px; font-size: 14px; color: var(--bone-dim); }
 .proj__index { font-size: clamp(40px, 5vw, 84px); line-height: 0.9; font-weight: 700; color: transparent; -webkit-text-stroke: 1.2px var(--bone); margin-right: auto; }
 .proj__kind { padding: 6px 12px; border-radius: 99px; border: 1px solid rgb(242 242 242 / 0.22); letter-spacing: 0.02em; }
-.proj__kind--client { border-color: var(--vermilion); color: #ff8f86; }
+.proj__kind--work { border-color: var(--vermilion); color: #ff8f86; }
 .proj__kind--corporate { background: rgb(242 242 242 / 0.08); }
 .proj__title { margin: 0; font-size: clamp(40px, 5.6vw, 104px); line-height: 0.92; letter-spacing: -0.04em; font-weight: 700; overflow: hidden; padding-bottom: 0.06em; }
 .proj__tag { margin: 0; font-size: clamp(18px, 1.5vw, 24px); color: var(--vermilion); }

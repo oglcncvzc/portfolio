@@ -1,6 +1,6 @@
 export type Locale = "tr" | "en";
 export type L10n = Record<Locale, string>;
-export type ProjectKind = "personal" | "client" | "corporate";
+export type ProjectKind = "personal" | "work" | "corporate";
 
 export type Project = {
   id: string;
@@ -21,7 +21,7 @@ export type Project = {
 
 export const kindLabel: Record<ProjectKind, L10n> = {
   personal: { tr: "Kişisel proje", en: "Personal project" },
-  client: { tr: "Müşteri işi", en: "Client work" },
+  work: { tr: "Kurumsal iş", en: "Corporate work" },
   corporate: { tr: "Kurumsal · internal", en: "Corporate · internal" },
 };
 
@@ -114,39 +114,39 @@ export const projects: Project[] = [
   {
     id: "phitalk",
     index: "04",
-    title: "PhiTalk",
-    kind: "personal",
+    title: "PhiWeb",
+    kind: "work",
     year: 2025,
-    repo: "https://github.com/oglcncvzc/Vertex-API",
-    tagline: { tr: "Gemini Live ile gerçek zamanlı sesli asistan", en: "Real-time voice assistant on Gemini Live" },
+    live: "https://phitech.ai/",
+    tagline: { tr: "PhiAI: Gemini Live sesli asistan ve 3D site", en: "PhiAI: Gemini Live voice assistant & 3D site" },
     summary: {
-      tr: "Google Gemini Live API üzerinde Türkçe konuşan, gerçek zamanlı sesli ve görüntülü asistan. Google'ın örnek kodundan yola çıkıp Cloud Run üzerindeki bir Vertex AI WebSocket proxy'sine taşıdım; Türkçe ses, araç çağırma ve hafıza ekledim.",
-      en: "A Turkish-speaking, real-time voice and vision assistant on Google's Gemini Live API. Starting from Google's samples, I moved it to a Vertex AI WebSocket proxy on Cloud Run and added Turkish voice, tool calling and memory.",
+      tr: "PhiAI için hem ürünü hem vitrini yaptım. Google Gemini Live API üzerinde Türkçe konuşan, gerçek zamanlı sesli ve görüntülü asistan (PhiTalk) ile Spline 3D sahneli, iki dilli tanıtım sitesi. Asistanı Google örneklerinden yola çıkıp Cloud Run üzerindeki bir Vertex AI WebSocket proxy'sine taşıdım; Türkçe ses, araç çağırma ve hafıza ekledim.",
+      en: "I built both the product and the storefront for PhiAI: a Turkish-speaking, real-time voice and vision assistant on Google's Gemini Live API (PhiTalk), and a bilingual landing site with a Spline 3D scene. Starting from Google's samples, I moved the assistant to a Vertex AI WebSocket proxy on Cloud Run and added Turkish voice, tool calling and memory.",
     },
     highlights: {
       tr: [
         "Service account ile sunucuda kimlik doğrulayan çift yönlü Python WebSocket proxy.",
         "AudioWorklet hattı: 16 kHz mikrofon akışı, 24 kHz kesilebilir model sesi, kamera ve ekran paylaşımı.",
         "Hava durumu için fonksiyon çağırma ve canlı fonksiyon çağrısı paneli.",
-        "Proxy ve frontend için Cloud Run'a ayrı konteyner dağıtımı.",
+        "Spline 3D hero ve scroll'a bağlı yatay mimari şeridi olan iki dilli site.",
       ],
       en: [
         "A bidirectional Python WebSocket proxy that authenticates server-side with a service account.",
         "An AudioWorklet pipeline: 16 kHz mic streaming, interruptible 24 kHz model audio, camera and screen share.",
         "Function calling for weather lookups, with a live function-call panel.",
-        "Separate Cloud Run containers for the proxy and the frontend.",
+        "A bilingual site with a Spline 3D hero and a scroll-driven horizontal architecture track.",
       ],
     },
-    stack: ["Gemini Live API", "Vertex AI", "Python", "WebSocket", "AudioWorklet", "Cloud Run"],
+    stack: ["Gemini Live API", "Vertex AI", "Python", "WebSocket", "AudioWorklet", "Cloud Run", "React", "Spline"],
     ai: ["Gemini Live", "Function calling"],
   },
   {
     id: "black-books",
     index: "05",
     title: "Black Books & Coffee",
-    kind: "client",
+    kind: "work",
     year: 2026,
-    repo: "https://github.com/oglcncvzc/BlackBooksCoffee",
+    live: "https://blackbookscoffee.netlify.app/",
     tagline: { tr: "Sahaf-kafe için QR menü", en: "QR menu for a bookshop café" },
     summary: {
       tr: "Kadıköy Moda'daki sahaf-kafe Black Books & Coffee için koyu, ahşap ve altın tonlu QR menü. Loş ışıkta barista'nın uzaktan okuyabileceği 'siparişini göster' modu, tek dokunuşla Wi-Fi şifresi ve yayınevine dosya başvurusu içerir.",
@@ -223,9 +223,8 @@ export const projects: Project[] = [
     id: "qr-menu",
     index: "08",
     title: "QR Menu System",
-    kind: "personal",
+    kind: "corporate",
     year: 2026,
-    privateRepo: true,
     tagline: { tr: "Restoran QR menüsü ve yönetim paneli", en: "Restaurant QR menu & admin" },
     summary: {
       tr: "Restoranlar için mobil QR menü ve yönetim paneli. Sipariş, garsonun okutacağı bir QR koda dönüşür; ruh haline göre öneri yapan bir asistan ve 6 hazır temalı canlı tema düzenleyicisi vardır.",
@@ -271,24 +270,5 @@ export const projects: Project[] = [
       ],
     },
     stack: ["HTML", "CSS", "JavaScript", "YouTube IFrame API", "Web Audio"],
-  },
-  {
-    id: "phiweb",
-    index: "10",
-    title: "PhiWeb",
-    kind: "personal",
-    year: 2025,
-    live: "https://phiai.netlify.app",
-    repo: "https://github.com/oglcncvzc/PhiWeb",
-    tagline: { tr: "Spline 3D konsept sitesi", en: "Spline 3D concept site" },
-    summary: {
-      tr: "İnsansı robotlara akıl yürütme katmanı öneren bir konsept için iki dilli tanıtım sitesi. Spline 3D hero, scroll'a bağlı yatay mimari şeridi ve EmailJS iletişim formu içerir.",
-      en: "A bilingual landing site for a concept that adds a reasoning layer to humanoid robots. It has a Spline 3D hero, a scroll-driven horizontal architecture track and an EmailJS contact form.",
-    },
-    highlights: {
-      tr: ["Spline 3D sahne ve yükleme durumu.", "requestAnimationFrame ile dikey scroll'u yatay şeride çeviren bölüm.", "TR/EN dil bağlamı."],
-      en: ["A Spline 3D scene with a loading state.", "A section that maps vertical scroll to a horizontal track with requestAnimationFrame.", "TR/EN language context."],
-    },
-    stack: ["React 19", "Spline", "framer-motion", "EmailJS"],
   },
 ];

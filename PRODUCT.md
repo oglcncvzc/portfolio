@@ -34,10 +34,12 @@ A single engineer who ships the whole thing: real-time product UI, backend/integ
 ## Capabilities and Constraints
 
 - Identity on the site: name + title ("Full-Stack & AI Engineer"). Do **not** name the current employer.
-- Selected projects (scored for interest; older 2022–2023 school/test repos excluded). Labels: **Personal**, **Client work**, **Corporate / internal** (no link; never name the employer or its clients).
+- Selected projects (scored for interest; older 2022–2023 school/test repos excluded). Labels: **Personal**, **Corporate work** (has a live link), **Corporate / internal** (no link) (no link; never name the employer or its clients).
   - Corporate / internal: Framely (AI product image & video studio on fal.ai: Nano Banana, Seedream, FLUX Kontext, Kling, Topaz; owner led the frontend), Falaxy (AI fortune-telling "fal" app, Expo + FastAPI + OpenAI), AI Influencer Automation Platform (SanalInfluencer; frontend), Decor paint calculator (colour clustering, Pantone matching).
-  - Personal / live: Coach-Panel (flagship, first project), Gemini Live voice assistant "PhiTalk" (Vertex-API + Sprint-3 + VoiceAssistant, built on Google's Apache-2.0 samples), QR Menu System (rule-based mood recommendations, not an LLM), PhiWeb (concept site), cassette players (metallicasette, manifest-bmo).
-  - Client work: Black Books & Coffee QR menu (built for a family member's café).
+  - Personal / live: Coach-Panel (flagship, first project), PhiWeb (merged with PhiTalk: Gemini Live voice assistant + Spline 3D site, live at https://phitech.ai/), cassette players (metallicasette, manifest-bmo).
+  - Corporate / internal (owner rule: any project without a live link is labelled corporate/internal): QR Menu System (rule-based mood recommendations, not an LLM).
+  - Corporate work (live): PhiWeb, Black Books & Coffee QR menu (built for a family member's café), live at https://blackbookscoffee.netlify.app/.
+- Only live links are shown on project cards; no code links.
 - Excluded by owner: glass colour prediction.
 - Corporate projects have no real screenshots that can be shown; mocks are rebuilt from code descriptions with anonymised data. Do not reuse competitor screenshots, stock module images, or any image that shows client names or network paths.
 - Capabilities section must describe what he can build: web products end to end, real-time apps, AI image/video generation pipelines, LLM features, voice agents, mobile apps (Expo/React Native), and data/ML tools.
