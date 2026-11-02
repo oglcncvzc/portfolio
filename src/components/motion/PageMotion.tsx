@@ -63,7 +63,7 @@ export default function PageMotion() {
         if (i < cards.length - 1) {
           gsap.to(inner, {
             scale: 0.9, yPercent: -2, "--shade": 0.6, ease: "none",
-            scrollTrigger: { trigger: cards[i + 1], start: "top bottom", end: "top top", scrub: true },
+            scrollTrigger: { trigger: cards[i + 1], start: "top 65%", end: "top top", scrub: true },
           });
         }
       });

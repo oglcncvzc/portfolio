@@ -39,7 +39,8 @@ export const copy = {
     en: ["Full-stack", "AI", "Real-time", "Voice agents", "Image & video generation", "Mobile", "Design systems"],
   },
   work: {
-    title: { tr: "Seçili işler", en: "Selected work" },
+    title: { tr: "Projeler", en: "Projects" },
+    sub: { tr: "Yapılan projelerden bazıları", en: "Some of the projects I've built" },
     note: {
       tr: "Kurumsal projeler internal olduğu için link yok; ekranlar anonim verilerle yeniden çizildi.",
       en: "Corporate projects are internal, so there are no links; their screens are redrawn with anonymised data.",
@@ -115,6 +116,7 @@ export const copy = {
     body: { tr: "Güncel özgeçmişimi indir.", en: "Download my current résumé." },
     soon: { tr: "CV yakında burada.", en: "CV coming soon." },
   },
+  toTop: { tr: "En yukarı çık", en: "Back to top" },
   footer: { tr: "Kodla, mürekkeple ve biraz da yapay zekâyla yapıldı.", en: "Made with code, ink and a little AI." },
 } as const;
 

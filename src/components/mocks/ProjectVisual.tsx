@@ -1,12 +1,12 @@
-import CoachMock from "./CoachMock";
 import FramelyMock from "./FramelyMock";
+import { CoachShowcase, QrShowcase } from "./Showcase";
 import "./visuals.css";
 
 /** Each project's own screen, rebuilt in HTML from its codebase. Corporate screens use anonymised demo data. */
 export default function ProjectVisual({ id, label }: { id: string; label: string }) {
   switch (id) {
     case "coach-panel":
-      return <div className="pv pv--coach"><div className="pv__browser"><CoachMock /></div></div>;
+      return <div className="pv"><CoachShowcase label={label} /></div>;
     case "framely":
       return <div className="pv pv--framely"><FramelyMock label={label} /></div>;
     case "falaxy":
@@ -79,16 +79,7 @@ export default function ProjectVisual({ id, label }: { id: string; label: string
         </div>
       );
     case "qr-menu":
-      return (
-        <div className="pv pv--qr" role="img" aria-label={label}>
-          <div className="phone phone--qr">
-            <div className="qr__head"><b>Lezzet Durağı</b><small>Masa 7</small></div>
-            <div className="qr__ai"><small>Nasıl hissediyorsunuz?</small><span>Bugün çok mutluyum! 🎉</span><span>Sağlıklı bir şeyler istiyorum 🥗</span></div>
-            <div className="qr__code">{Array.from({ length: 81 }, (_, i) => (<i key={i} className={(i * 7 + (i >> 2)) % 3 === 0 || [0, 1, 2, 9, 11, 18, 19, 20, 6, 7, 8, 15, 17, 24, 25, 26, 54, 55, 56, 63, 65, 72, 73, 74].includes(i) ? "on" : ""} />))}</div>
-            <p className="qr__cap">Bu QR kodu garsona göstererek siparişinizi masanıza iletebilirsiniz.</p>
-          </div>
-        </div>
-      );
+      return <div className="pv"><QrShowcase label={label} /></div>;
     case "cassettes":
       return (
         <div className="pv pv--tape" role="img" aria-label={label}>
