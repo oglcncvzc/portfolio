@@ -54,7 +54,7 @@ A single engineer who ships the whole thing: real-time product UI, backend/integ
 
 - Case-study data: scratchpad `projects.json` (GitHub) and `local-projects.json` (local projects) from the research pass; to be copied into the site's content files.
 - Falaxy imagery: `~/FortuneTeller/FAL/assets/hero.png`, `assets/tarot.png`, `~/Downloads/FAL.jpeg` (logo).
-- Live: Coach-Panel (https://www.kocpaneli.online/), PhiWeb (https://phiai.netlify.app), Metallica cassette (https://oglcncvzc.github.io/metallicasette/).
+- Live: Coach-Panel (https://www.kocpaneli.online/), PhiWeb (https://phitech.ai/), Black Books & Coffee (https://blackbookscoffee.netlify.app/), Metallica cassette (https://oglcncvzc.github.io/metallicasette/).
 - Source code for every selected project in GitHub.
 - Absent: testimonials, client logos, metrics, CV file. Never fabricate these.
 
