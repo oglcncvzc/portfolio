@@ -23,7 +23,7 @@ export const copy = {
     contact: { tr: "İletişim", en: "Contact" },
   },
   cta: {
-    talk: { tr: "İletişime geç", en: "Let's talk" },
+    talk: { tr: "İletişime geç", en: "Get in touch" },
     cv: { tr: "CV", en: "CV" },
   },
   hero: {
@@ -120,3 +120,7 @@ export const copy = {
 } as const;
 
 export const t = (v: L10n, l: Locale) => v[l];
+
+/** Every "get in touch" action opens the mail app with a prefilled subject. */
+export const mailto = (l: Locale) =>
+  `mailto:${person.email}?subject=${encodeURIComponent(l === "tr" ? "Proje / iş birliği hakkında" : "About a project / collaboration")}`;

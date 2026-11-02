@@ -1,20 +1,19 @@
 import type { Locale } from "@/content/projects";
-import { copy, person, t } from "@/content/site";
+import { copy, mailto, person, t } from "@/content/site";
 import Split from "./Split";
 import { ArrowUpRight, GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons/Social";
 
 export default function Contact({ locale }: { locale: Locale }) {
-  const href = person.email ? `mailto:${person.email}` : person.linkedin || person.github;
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
       <Split as="h2" text={t(copy.contact.title, locale)} className="contact__title" />
       <p className="contact__body reveal">{t(copy.contact.body, locale)}</p>
-      <a className="contact__btn" href={href} data-magnetic="0.45" target={person.email ? undefined : "_blank"} rel="noreferrer">
+      <a className="contact__btn" href={mailto(locale)} data-magnetic="0.45">
         <span>{t(copy.cta.talk, locale)}</span>
       </a>
       <ul className="social reveal" aria-label={locale === "tr" ? "Bağlantılar" : "Links"}>
         <li>
-          <a href={`mailto:${person.email}`} className="social__item" data-magnetic="0.15">
+          <a href={mailto(locale)} className="social__item" data-magnetic="0.15">
             <span className="social__ico"><MailIcon /></span>
             <span className="social__txt"><small>{locale === "tr" ? "E-posta" : "Email"}</small><b>{person.email}</b></span>
             <ArrowUpRight />

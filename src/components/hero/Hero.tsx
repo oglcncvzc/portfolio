@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Locale } from "@/content/projects";
 import { projects } from "@/content/projects";
-import { copy, person, t } from "@/content/site";
+import { copy, mailto, person, t } from "@/content/site";
 import RingLens from "@/components/ink/RingLens";
 import Vein from "@/components/ink/Vein";
 import CoachMock from "@/components/mocks/CoachMock";
@@ -54,7 +54,7 @@ export default function Hero({ locale }: { locale: Locale }) {
       <p className="hero__tagline r" aria-hidden="true">{t(person.title, locale)}</p>
 
       <div className="hero__ctas r">
-        <a className="hero__cta hero__cta--talk" href="#contact" data-magnetic="0.3">{t(copy.cta.talk, locale)}</a>
+        <a className="hero__cta hero__cta--talk" href={mailto(locale)} data-magnetic="0.3">{t(copy.cta.talk, locale)}</a>
         <a className="hero__cta hero__cta--cv" href="#cv" data-magnetic="0.3">{t(copy.cta.cv, locale)}</a>
       </div>
 
