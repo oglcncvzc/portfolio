@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const m = meta[(locale as Locale) in meta ? (locale as Locale) : "tr"];
   return {
+    metadataBase: new URL("https://portfolio-cev5.vercel.app"),
     title: m.title,
     description: m.description,
     alternates: { languages: { tr: "/tr", en: "/en" } },

@@ -8,6 +8,7 @@ export const person = {
   nameUpper: "OĞULCAN CEVİZCİ",
   title: { tr: "Full-Stack & AI Engineer", en: "Full-Stack & AI Engineer" } satisfies L10n,
   github: "https://github.com/oglcncvzc",
+  site: "https://portfolio-cev5.vercel.app",
   email: "cevizciogulcan@gmail.com",
   linkedin: "https://www.linkedin.com/in/o%C4%9Fulcan-cevizci-937a99214",
   location: { tr: "", en: "" } satisfies L10n,
