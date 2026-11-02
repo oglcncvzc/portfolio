@@ -16,3 +16,6 @@ next-env.d.ts
 .impeccable/mocks/worlds/
 .impeccable/tmp/
 .impeccable/*.json
+# CV sources and the application copies (with phone number) stay local
+/cv/
+*_CV_*.pdf
