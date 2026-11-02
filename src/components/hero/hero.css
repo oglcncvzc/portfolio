@@ -1,0 +1,105 @@
+/* Measured layout of the approved comp (1376x768), bound from .impeccable/build/scaffold/layout.css. */
+.hero {
+  --r-tagline-x: 36.630%; --r-tagline-y: 67.190%; --r-tagline-w: 25.290%; --r-tagline-h: 5.210%;
+  --r-nav-x: 36.770%; --r-nav-y: 3.390%; --r-nav-w: 26.450%; --r-nav-h: 5.990%;
+  --r-ring-o-x: 6.100%; --r-ring-o-y: 15.890%; --r-ring-o-w: 29.940%; --r-ring-o-h: 49.480%;
+  --r-coach-screen-x: 9.880%; --r-coach-screen-y: 25.520%; --r-coach-screen-w: 22.670%; --r-coach-screen-h: 28.910%;
+  --r-name-gulcan-x: 36.050%; --r-name-gulcan-y: 13.540%; --r-name-gulcan-w: 58.870%; --r-name-gulcan-h: 26.040%;
+  --r-name-cevizci-x: 36.190%; --r-name-cevizci-y: 38.020%; --r-name-cevizci-w: 58.870%; --r-name-cevizci-h: 25.780%;
+  --r-red-vein-x: 18.170%; --r-red-vein-y: 53.390%; --r-red-vein-w: 68.020%; --r-red-vein-h: 25.520%;
+  --r-caption-01-x: 6.100%; --r-caption-01-y: 68.490%; --r-caption-01-w: 29.070%; --r-caption-01-h: 3.650%;
+  --r-cta-talk-x: 80.520%; --r-cta-talk-y: 65.890%; --r-cta-talk-w: 8.430%; --r-cta-talk-h: 6.250%;
+  --r-cta-cv-x: 89.100%; --r-cta-cv-y: 65.890%; --r-cta-cv-w: 4.800%; --r-cta-cv-h: 6.250%;
+  --r-caption-02-x: 35.030%; --r-caption-02-y: 82.550%; --r-caption-02-w: 30.090%; --r-caption-02-h: 3.910%;
+  --r-framely-screen-x: 34.740%; --r-framely-screen-y: 87.760%; --r-framely-screen-w: 65.260%; --r-framely-screen-h: 12.240%;
+
+  /* 1 comp pixel, in viewport units, so type and chrome scale with the frame. */
+  --u: calc(100cqw / 1376);
+
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: calc(100vw * 768 / 1376 * 0.82);
+  container-type: size;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero > * { position: absolute; }
+.r { left: var(--x); top: var(--y); width: var(--w); height: var(--h); }
+
+.hero__marble { inset: 0; z-index: 0; }
+.hero__marble img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero__name { z-index: 3; }
+.hero__name img { width: 100%; height: 100%; object-fit: contain; }
+.hero__name--gulcan { --x: var(--r-name-gulcan-x); --y: var(--r-name-gulcan-y); --w: var(--r-name-gulcan-w); --h: var(--r-name-gulcan-h); }
+.hero__name--cevizci { --x: var(--r-name-cevizci-x); --y: var(--r-name-cevizci-y); --w: var(--r-name-cevizci-w); --h: var(--r-name-cevizci-h); }
+
+/* Code-drawn layers */
+.hero__screen { --x: var(--r-coach-screen-x); --y: var(--r-coach-screen-y); --w: var(--r-coach-screen-w); --h: var(--r-coach-screen-h); z-index: 1; overflow: hidden; border-radius: calc(6 * var(--u)); }
+.hero__ring { --x: var(--r-ring-o-x); --y: var(--r-ring-o-y); --w: var(--r-ring-o-w); --h: var(--r-ring-o-h); z-index: 2; pointer-events: none; }
+.hero__ring[data-fallback] { background: url("/textures/ring-o.webp") center / 100% 100% no-repeat; }
+.hero__vein { --x: var(--r-red-vein-x); --y: var(--r-red-vein-y); --w: var(--r-red-vein-w); --h: var(--r-red-vein-h); z-index: 4; pointer-events: none; }
+
+.hero__nav {
+  --x: var(--r-nav-x); --y: var(--r-nav-y); --w: var(--r-nav-w); --h: var(--r-nav-h);
+  z-index: 6;
+  display: flex; align-items: center; justify-content: center; gap: calc(8 * var(--u));
+  background: rgb(236 236 236 / 0.94);
+  color: #141414;
+  border-radius: 999px;
+  font-size: calc(18.5 * var(--u));
+  letter-spacing: 0.005em;
+  box-shadow: 0 calc(6 * var(--u)) calc(24 * var(--u)) rgb(0 0 0 / 0.28);
+}
+.hero__nav a { text-decoration: none; }
+.hero__nav a:hover { text-decoration: underline; }
+.hero__nav-rule { width: 1px; align-self: stretch; margin: calc(10 * var(--u)) calc(6 * var(--u)); background: #9a9a9a; }
+.hero__lang a[aria-current] { font-weight: 600; }
+
+.hero__caption {
+  margin: 0; z-index: 5; white-space: nowrap;
+  font-size: calc(20.5 * var(--u)); line-height: 1;
+  display: flex; align-items: center;
+  color: var(--bone);
+  text-shadow: 0 1px calc(10 * var(--u)) rgb(0 0 0 / 0.65);
+}
+.hero__caption--01 { --x: var(--r-caption-01-x); --y: var(--r-caption-01-y); --w: var(--r-caption-01-w); --h: var(--r-caption-01-h); white-space: normal; line-height: 1.2; align-items: flex-start; max-width: calc(380 * var(--u)); }
+.hero__caption--02 { --x: var(--r-caption-02-x); --y: var(--r-caption-02-y); --w: var(--r-caption-02-w); --h: var(--r-caption-02-h); justify-content: center; }
+
+.hero__tagline {
+  --x: var(--r-tagline-x); --y: var(--r-tagline-y); --w: var(--r-tagline-w); --h: var(--r-tagline-h);
+  margin: 0; z-index: 5; white-space: nowrap;
+  font-size: calc(32 * var(--u)); line-height: 1; letter-spacing: 0.002em;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bone);
+  text-shadow: 0 1px calc(14 * var(--u)) rgb(0 0 0 / 0.7);
+}
+
+.hero__cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px; text-decoration: none;
+  font-size: calc(18 * var(--u));
+  transition: background-color 0.3s, color 0.3s;
+}
+.hero__ctas {
+  --x: var(--r-cta-talk-x); --y: var(--r-cta-talk-y); --h: var(--r-cta-talk-h);
+  --w: calc(var(--r-cta-cv-x) + var(--r-cta-cv-w) - var(--r-cta-talk-x));
+  z-index: 6; display: flex; justify-content: flex-end; gap: calc(2 * var(--u));
+}
+.hero__ctas .hero__cta { height: 100%; }
+.hero__cta--talk {
+  min-width: calc(116 * var(--u)); padding: 0 calc(18 * var(--u)); white-space: nowrap;
+  background: #f8f7f6; color: var(--vermilion);
+  box-shadow: inset 0 0 0 calc(2.5 * var(--u)) var(--vermilion);
+}
+.hero__cta--talk:hover { background: var(--vermilion); color: var(--bone); }
+.hero__cta--cv {
+  width: calc(66 * var(--u));
+  background: rgb(107 107 107 / 0.82); color: var(--bone);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
+}
+.hero__cta--cv:hover { background: var(--bone); color: var(--ink-0); }
+
+.hero__framely { --x: var(--r-framely-screen-x); --y: var(--r-framely-screen-y); --w: var(--r-framely-screen-w); --h: var(--r-framely-screen-h); z-index: 3; }
