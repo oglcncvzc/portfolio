@@ -32,7 +32,7 @@ const list: Project[] = [
     title: "Coach Panel",
     kind: "personal",
     year: 2026,
-    live: "https://coach-panel-oqpf.vercel.app",
+    live: "https://www.kocpaneli.online/",
     privateRepo: true,
     tagline: { tr: "Canlı voleybol maç istatistikleri", en: "Live volleyball match stats" },
     summary: {
