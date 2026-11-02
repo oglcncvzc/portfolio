@@ -114,13 +114,13 @@ const list: Project[] = [
   {
     id: "hotel-ai",
     index: "04",
-    title: "GAI Hotel",
+    title: "Hotel Review AI",
     kind: "corporate",
     year: 2026,
     tagline: { tr: "Otel yorum zekâsı ve fiyat takibi", en: "Hotel review intelligence & price tracking" },
     summary: {
-      tr: "Otellerin misafir yorumlarını birçok platformdan toplayıp yapay zekâyla duygu, konu ve kategori bazında analiz eden; AI cevap taslakları ve zamanlanmış raporlar üreten panel. Yanında rakip otellerin fiyatlarını Booking, ETS ve Trivago'dan izleyen bir fiyat modülü var. İlk prototipleri (GAI Hotel) geliştirdim ve ön yüzde çalıştım.",
-      en: "A panel that collects hotel guest reviews from many platforms and analyses them with AI by sentiment, topic and category, then drafts AI replies and scheduled reports. Alongside it, a price module tracks competitor hotel rates across Booking, ETS and Trivago. I built the first prototypes (GAI Hotel) and worked on the frontend.",
+      tr: "Otellerin misafir yorumlarını birçok platformdan toplayıp yapay zekâyla duygu, konu ve kategori bazında analiz eden; AI cevap taslakları ve zamanlanmış raporlar üreten panel. Yanında rakip otellerin fiyatlarını Booking, ETS ve Trivago'dan izleyen bir fiyat modülü var. İlk prototipleri geliştirdim ve ön yüzde çalıştım.",
+      en: "A panel that collects hotel guest reviews from many platforms and analyses them with AI by sentiment, topic and category, then drafts AI replies and scheduled reports. Alongside it, a price module tracks competitor hotel rates across Booking, ETS and Trivago. I built the first prototypes and worked on the frontend.",
     },
     highlights: {
       tr: [

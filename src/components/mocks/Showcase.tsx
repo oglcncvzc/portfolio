@@ -180,10 +180,10 @@ export function QrShowcase({ label }: { label: string }) {
   );
 }
 
-/* ---------- GAI Hotel (desktop panel, anonymised hotels) ---------- */
+/* ---------- Hotel Review AI (desktop panel, anonymised hotels) ---------- */
 const HSide = ({ on }: { on: number }) => (
   <aside className="gh__side">
-    <b className="gh__brand"><i />GAI Hotel</b>
+    <b className="gh__brand"><i />Review AI</b>
     {["Dashboard", "Yorum Analizi", "Fiyat Takibi", "Raporlar", "Otel Kurulumu"].map((k, i) => (<span key={k} className={i === on ? "on" : ""}>{k}</span>))}
   </aside>
 );
