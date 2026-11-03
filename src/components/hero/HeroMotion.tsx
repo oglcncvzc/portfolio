@@ -12,7 +12,16 @@ export default function HeroMotion() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const q = (s: string) => document.querySelector<HTMLElement>(s);
     const hero = q(".hero");
-    if (!hero || reduce) { hero?.classList.add("is-in"); return; }
+    if (!hero) return;
+    if (reduce) {
+      // calm: everything fades in where it already stands; no zoom, blur, parallax or pinned dive
+      const calmCtx = gsap.context(() => {
+        gsap.from(".hero__ring, .hero__screen, .hero__name, .hero__nav, .hero__tagline, .hero__caption, .hero__ctas, .hero__framely", {
+          opacity: 0, duration: 1, ease: "power2.out", stagger: 0.08, onComplete: () => hero.classList.add("is-in"),
+        });
+      }, hero);
+      return () => calmCtx.revert();
+    }
 
     const ctx = gsap.context(() => {
       const names = [".hero__name--gulcan", ".hero__name--cevizci"];

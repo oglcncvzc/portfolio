@@ -170,7 +170,7 @@ export default function InkStage({ src = "/textures/marble.webp" }: { src?: stri
       const dim = Math.min(0.62, Math.max(0, (sy / Math.max(1, VH) - 0.35) * 0.9));
 
       let pvx = 0, pvy = 0;
-      if (ptr.active && !still) { pvx = (ptr.x - ptr.px) * 9; pvy = (ptr.y - ptr.py) * 9; }
+      if (ptr.active) { pvx = (ptr.x - ptr.px) * 9; pvy = (ptr.y - ptr.py) * 9; }
       ptr.px = ptr.x; ptr.py = ptr.y;
 
       const vw = Math.round(W / 4), vh = Math.round(H / 4);

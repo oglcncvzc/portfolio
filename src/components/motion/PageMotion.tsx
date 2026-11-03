@@ -15,17 +15,18 @@ export default function PageMotion() {
     const ctx = gsap.context(() => {
       // scroll progress vein
       if (bar) gsap.to(bar, { scaleY: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
-      if (reduce) return;
+      // Reduced motion keeps the page alive (fades, masks, light-up, slow drift) and drops what moves the
+      // viewer through space: zooms, tilts, parallax, skew and velocity boosts.
+      const calm = reduce;
 
       // headings: characters rise out of the ink
       gsap.utils.toArray<HTMLElement>(".work__title, .caps__title, .contact__title, .proj__title").forEach((el) => {
-        gsap.from(el.querySelectorAll(".split__c"), {
-          yPercent: 115, rotate: 8, opacity: 0, filter: "blur(6px)", duration: 1.1, ease: "expo.out", stagger: 0.022,
-          scrollTrigger: { trigger: el, start: "top 88%" },
-        });
+        gsap.from(el.querySelectorAll(".split__c"), calm
+          ? { opacity: 0, duration: 0.9, ease: "power2.out", stagger: 0.012, scrollTrigger: { trigger: el, start: "top 88%" } }
+          : { yPercent: 115, rotate: 8, opacity: 0, filter: "blur(6px)", duration: 1.1, ease: "expo.out", stagger: 0.022, scrollTrigger: { trigger: el, start: "top 88%" } });
       });
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) => {
-        gsap.from(el, { y: 36, opacity: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 90%" } });
+        gsap.from(el, { y: calm ? 0 : 36, opacity: 0, duration: calm ? 0.8 : 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 90%" } });
       });
 
       // marquee: base drift plus scroll velocity, skewed by speed
@@ -35,10 +36,10 @@ export default function PageMotion() {
       ScrollTrigger.create({ onUpdate: (s) => { vel = s.getVelocity(); } });
       const tick = () => {
         vel *= 0.92;
-        const boost = gsap.utils.clamp(-14, 14, vel / 220);
+        const boost = calm ? 0 : gsap.utils.clamp(-14, 14, vel / 220);
         state.forEach((s) => {
           const w = s.track.scrollWidth / 2 || 1;
-          s.x += (0.9 + Math.abs(boost)) * s.dir * (vel < 0 ? -1 : 1);
+          s.x += (calm ? 0.35 : 0.9 + Math.abs(boost)) * s.dir * (!calm && vel < 0 ? -1 : 1);
           if (s.x <= -w) s.x += w;
           if (s.x > 0) s.x -= w;
           s.track.style.transform = `translate3d(${s.x}px,0,0) skewX(${-boost * 0.9}deg)`;
@@ -62,7 +63,7 @@ export default function PageMotion() {
           clipPath: "circle(75% at 50% 50%)", ease: "power2.out",
           scrollTrigger: { start: () => enter() - window.innerHeight * 0.85, end: () => enter() - window.innerHeight * 0.15, scrub: 0.6, invalidateOnRefresh: true },
         });
-        gsap.fromTo(visual, { scale: 1.25, rotate: -4 }, {
+        if (!calm) gsap.fromTo(visual, { scale: 1.25, rotate: -4 }, {
           scale: 1, rotate: 0, ease: "power2.out",
           scrollTrigger: { start: () => enter() - window.innerHeight * 0.85, end: () => enter() - window.innerHeight * 0.1, scrub: 0.6, invalidateOnRefresh: true },
         });
@@ -73,7 +74,7 @@ export default function PageMotion() {
         cards.slice(0, -1).forEach((card, i) => {
           const inner = card.querySelector<HTMLElement>(".proj__card")!;
           gsap.fromTo(inner, { scale: 1, yPercent: 0, "--shade": 0 }, {
-            scale: 0.9, yPercent: -2, "--shade": 0.6, ease: "none",
+            scale: calm ? 1 : 0.9, yPercent: calm ? 0 : -2, "--shade": 0.6, ease: "none",
             scrollTrigger: {
               // the next card's top travels from 65% of the viewport to the top
               start: () => stackTop() + (i + 1) * slot() - window.innerHeight * 0.65,
@@ -94,11 +95,11 @@ export default function PageMotion() {
       }
 
       // cv: the ring turns with the scroll
-      gsap.fromTo(".cv__ring", { rotate: -60, scale: 0.7 }, { rotate: 40, scale: 1.1, ease: "none", scrollTrigger: { trigger: ".cv", start: "top bottom", end: "bottom top", scrub: true } });
-      gsap.from(".cv__title", { yPercent: 40, opacity: 0, scale: 0.9, ease: "expo.out", duration: 1.4, scrollTrigger: { trigger: ".cv", start: "top 70%" } });
+      if (!calm) gsap.fromTo(".cv__ring", { rotate: -60, scale: 0.7 }, { rotate: 40, scale: 1.1, ease: "none", scrollTrigger: { trigger: ".cv", start: "top bottom", end: "bottom top", scrub: true } });
+      gsap.from(".cv__title", calm ? { opacity: 0, duration: 0.9, scrollTrigger: { trigger: ".cv", start: "top 70%" } } : { yPercent: 40, opacity: 0, scale: 0.9, ease: "expo.out", duration: 1.4, scrollTrigger: { trigger: ".cv", start: "top 70%" } });
 
       // contact button drops in like ink
-      gsap.from(".contact__btn", { scale: 0, rotate: -40, duration: 1.4, ease: "elastic.out(1, 0.55)", scrollTrigger: { trigger: ".contact__btn", start: "top 95%" } });
+      gsap.from(".contact__btn", calm ? { opacity: 0, duration: 0.9, scrollTrigger: { trigger: ".contact__btn", start: "top 95%" } } : { scale: 0, rotate: -40, duration: 1.4, ease: "elastic.out(1, 0.55)", scrollTrigger: { trigger: ".contact__btn", start: "top 95%" } });
 
       return () => gsap.ticker.remove(tick);
     });

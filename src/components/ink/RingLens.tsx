@@ -92,7 +92,7 @@ export default function RingLens({ className, src = "/textures/ring-o.webp" }: {
       gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
       gl.uniform1f(uT, (performance.now() - t0) / 1000);
       gl.uniform2f(uM, mouse.x, mouse.y);
-      gl.uniform1f(uMS, still ? 0 : mouse.s);
+      gl.uniform1f(uMS, mouse.s);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     };
     frame();

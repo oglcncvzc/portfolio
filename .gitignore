@@ -19,3 +19,4 @@ next-env.d.ts
 # CV sources and the application copies (with phone number) stay local
 /cv/
 *_CV_*.pdf
+/armut/
