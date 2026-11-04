@@ -251,3 +251,15 @@ mark.pos { background: #dcfce7; } mark.neg { background: #fee2e2; }
 .fx__traits span { font-size: 2.7cqw; padding: 1.2cqw 2.2cqw; border-radius: 99px; background: rgb(255 255 255 / 0.08); }
 @media (prefers-reduced-motion: reduce) { .fx__hero i, .fx__caret { animation: none; } }
 .fx__zodiac .fx__ai { justify-self: start; }
+
+/* Real screenshots */
+.sc--shots { background: radial-gradient(90% 90% at 50% 100%, #3a3a3a 0%, #151515 60%, #0b0b0b 100%); }
+.shots__browser { width: 100%; max-height: 100%; border-radius: 1.6cqh; overflow: hidden; background: #f5f3ee; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08), 0 4cqh 10cqh rgb(0 0 0 / 0.5); display: flex; flex-direction: column; }
+.shots__bar { flex: none; display: flex; align-items: center; gap: 0.8cqh; padding: 1.2cqh 1.6cqh; background: #e9e6df; }
+.shots__bar i { width: 1.2cqh; height: 1.2cqh; border-radius: 50%; background: #c9c4ba; }
+.shots__bar span { margin-left: 1.4cqh; font-size: max(11px, 1.6cqh); color: #5c574e; background: #f5f3ee; padding: 0.4cqh 1.6cqh; border-radius: 99px; }
+.shots__view { aspect-ratio: 1440 / 900; overflow: hidden; animation: ghIn 0.7s var(--ease-out); }
+.shots__view img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.shots__phone { position: absolute; right: 2cqw; bottom: 3cqh; width: 22cqh; aspect-ratio: 390 / 844; border-radius: 3cqh; overflow: hidden; border: 0.8cqh solid #0c0c0e; box-shadow: 0 3cqh 7cqh rgb(0 0 0 / 0.55); background: #f5f3ee; }
+.shots__phone img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+@media (prefers-reduced-motion: reduce) { .shots__view { animation: none; } }

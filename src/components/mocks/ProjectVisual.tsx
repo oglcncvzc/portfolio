@@ -1,5 +1,5 @@
 import FramelyMock from "./FramelyMock";
-import { CoachShowcase, FalaxyShowcase, HotelShowcase, QrShowcase } from "./Showcase";
+import { CoachShowcase, FalaxyShowcase, HotelShowcase, QrShowcase, ShotsShowcase } from "./Showcase";
 import "./visuals.css";
 
 /** Each project's own screen, rebuilt in HTML from its codebase. Corporate screens use anonymised demo data. */
@@ -11,6 +11,17 @@ export default function ProjectVisual({ id, label }: { id: string; label: string
       return <div className="pv pv--framely"><FramelyMock label={label} /></div>;
     case "hotel-ai":
       return <div className="pv"><HotelShowcase label={label} /></div>;
+    case "muhtelif":
+      return (
+        <div className="pv">
+          <ShotsShowcase label={label} url="muhtelif-kitap.vercel.app" mobile="/work/muhtelif/mobile.webp" shots={[
+            { key: "home", label: "Ana sayfa", src: "/work/muhtelif/home.webp" },
+            { key: "books", label: "Kitaplar", src: "/work/muhtelif/books.webp" },
+            { key: "book", label: "Kitap detayı", src: "/work/muhtelif/book.webp" },
+            { key: "authors", label: "Yazarlar", src: "/work/muhtelif/authors.webp" },
+          ]} />
+        </div>
+      );
     case "falaxy":
       return <div className="pv"><FalaxyShowcase label={label} /></div>;
     case "phitalk":

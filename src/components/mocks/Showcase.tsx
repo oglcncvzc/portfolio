@@ -331,3 +331,23 @@ export function FalaxyShowcase({ label }: { label: string }) {
     ]} />
   );
 }
+
+
+/* ---------- Real screenshots in a browser frame (projects with a live site) ---------- */
+export function ShotsShowcase({ label, url, shots, mobile }: { label: string; url: string; shots: { key: string; label: string; src: string }[]; mobile?: string }) {
+  const [a, setA] = useState(0);
+  return (
+    <div className="sc sc--shots" role="group" aria-label={label}>
+      <div className="sc__tabs" role="tablist">
+        {shots.map((s, i) => (<button key={s.key} role="tab" aria-selected={i === a} className={i === a ? "on" : ""} onClick={() => setA(i)} data-cursor="">{s.label}</button>))}
+      </div>
+      <div className="sc__desk">
+        <div className="shots__browser">
+          <div className="shots__bar"><i /><i /><i /><span>{url}</span></div>
+          <div className="shots__view" key={shots[a].key}><img src={shots[a].src} alt={`${label} — ${shots[a].label}`} /></div>
+        </div>
+        {mobile && (<div className="shots__phone"><img src={mobile} alt="" /></div>)}
+      </div>
+    </div>
+  );
+}

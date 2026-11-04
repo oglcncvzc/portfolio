@@ -212,6 +212,34 @@ const list: Project[] = [
     stack: ["Next.js 14", "TypeScript", "CSS tokens"],
   },
   {
+    id: "muhtelif",
+    index: "08",
+    title: "Muhtelif Kitap",
+    kind: "work",
+    year: 2026,
+    live: "https://muhtelif-kitap.vercel.app/",
+    tagline: { tr: "Bağımsız yayınevi sitesi ve yönetim paneli", en: "Independent publisher site & admin" },
+    summary: {
+      tr: "Roman, öykü, şiir ve inceleme yayımlayan bağımsız yayınevi Muhtelif Kitap için iki dilli site ve içerik yönetim paneli. Kitap kataloğu tür, dizi ve yayınevine göre filtrelenir; yazar sayfaları, arama ve dizi vitrinleri vardır. Yayınevi kitap, yazar, banner ve kategorileri kendi panelinden yönetir.",
+      en: "A bilingual site and content admin for Muhtelif Kitap, an independent publisher of novels, short stories, poetry and essays. The catalogue filters by genre, series and imprint, with author pages, search and series showcases. The publisher manages books, authors, banners and categories from its own panel.",
+    },
+    highlights: {
+      tr: [
+        "Tür, dizi ve yayınevine göre filtrelenen katalog; kitap ve yazar detay sayfaları, anlık arama penceresi.",
+        "Dizi vitrinli hero slider, kayan kitap adları bandı ve TR/EN dil desteği.",
+        "Kitap, yazar, banner, kategori ve site ayarlarını yöneten admin paneli; görsel yükleme ve REST API (Next.js route handlers, Vercel KV).",
+        "KVKK, gizlilik ve çerez politikası sayfaları.",
+      ],
+      en: [
+        "A catalogue filtered by genre, series and imprint, with book and author detail pages and an instant search modal.",
+        "A hero slider with series showcases, a scrolling title band and TR/EN support.",
+        "An admin panel for books, authors, banners, categories and settings, with image upload and a REST API (Next.js route handlers, Vercel KV).",
+        "KVKK (Turkish GDPR), privacy and cookie policy pages.",
+      ],
+    },
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS 4", "Vercel KV", "REST API"],
+  },
+  {
     id: "ai-influencer",
     index: "06",
     title: "AI Influencer Platform",
