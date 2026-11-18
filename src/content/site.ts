@@ -13,7 +13,8 @@ export const person = {
   linkedin: "https://www.linkedin.com/in/o%C4%9Fulcan-cevizci-937a99214",
   location: { tr: "", en: "" } satisfies L10n,
   /** Owner uploads the PDF later to public/cv/. */
-  cv: { tr: "/cv/ogulcan-cevizci-cv-tr.pdf", en: "/cv/ogulcan-cevizci-cv-en.pdf" } satisfies L10n,
+  // One English CV for both languages; the public copy has references removed.
+  cv: { tr: "/cv/ogulcan-cevizci-cv-en.pdf", en: "/cv/ogulcan-cevizci-cv-en.pdf" } satisfies L10n,
 };
 
 export const copy = {
